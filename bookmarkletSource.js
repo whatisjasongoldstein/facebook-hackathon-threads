@@ -99,8 +99,16 @@ function getRelatedLinksHTML( link ) {
 
   if( ! thread.previousArticles && ! thread.previousArticles ) return '';
 
-  if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">nytimes.com</div></li>' } );
-  if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">nytimes.com</div></li>' } );
+  if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) {
+	var parser = document.createElement('a');
+	parser.href = element.url;
+	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div></li>';
+  } );
+  if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) {
+  	var parser = document.createElement('a');
+	parser.href = element.url;
+	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div></li>';
+  } );
 
   html += `</ul>
         </div>
