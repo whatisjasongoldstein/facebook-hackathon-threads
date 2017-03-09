@@ -51,19 +51,31 @@ function getRelatedLinksHTML( link ) {
 	var html = '';
 	var thread = extractThread( link );
 
-	if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<div>' + element.url + '</div>' } );
-	if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<div>' + element.url + '</div>' } );
+	if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<div>Prev: ' + element.url + '</div>' } );
+	if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<div>Next: ' + element.url + '</div>' } );
 
 	return html;
 }
 
 function insertContentMaybe( postCard ) {
-	var link = postCard.querySelector( '._6ks a' );
+	var link = postCard.querySelector( '._6ks a, a.touchable' );
 
-  relatedLinksHTML = getRelatedLinksHTML( link );
+	if( ! link ) return;
 
-  if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
+	link = link.getAttribute( 'href' )
+		.replace("https://l.facebook.com/l.php?u=", "")
+		.replace("https://lm.facebook.com/l.php?u=", "")
+		.replace(/%3A/gi, ":")
+		.replace(/%F/gi, "/")
+		.replace(/%2F/gi, "/")
+		.split( '&' )[0];
+
+	console.log( link );
+
+	relatedLinksHTML = getRelatedLinksHTML( link );
+
+	if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
 }
 
 
-document.querySelectorAll( '._3x-2' ).forEach( function( postCard ){ insertContentMaybe( postCard ) } );
+document.querySelectorAll( '._3x-2, div[data-sigil=m-feed-story-attachments-element' ).forEach( function( postCard ){ insertContentMaybe( postCard ) } );
