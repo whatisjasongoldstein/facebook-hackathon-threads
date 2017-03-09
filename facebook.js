@@ -1,45 +1,38 @@
 const listOfThreads = [
   {
-    "title" : "Health",
+    "title" : "Renewable energy",
     "articles": [
       {
-        "url" : "https://www.nytimes.com/2017/03/09/us/politics/health-bill-clears-house-panel-in-pre-dawn-hours.html",
-        "thumbnail": "https://static01.nyt.com/images/2017/03/10/us/10health1/10health1-master768.jpg",
-        "title": "unrelated"
-      },
-      {
-        "url" : "https://www.nytimes.com/2017/03/09/us/politics/health-bill-clears-house-panel-in-pre-dawn-hours.html",
-        "thumbnail": "https://static01.nyt.com/images/2017/03/10/us/10health1/10health1-master768.jpg",
-        "title": "unrelated"
+        "url" : "http://www.npr.org/2017/03/08/518988840/wind-energy-takes-flight-in-the-heart-of-texas-oil-country",
+        "thumbnail": "http://media.npr.org/assets/img/2017/03/07/-wind-img_7024-edit-daa38c839ec1b42a40a3146c70c4c6e10f6be454-s1600-c85.jpg",
+        "title": "Wind Energy Takes Flight In The Heart Of Texas Oil Country"
       }
     ]
   },
-  { "title" : "Wikileaks",
+  { "title" : "Healthcare",
     "articles": [
       {
-        "url" : "https://www.nytimes.com/2017/03/09/us/politics/health-bill-clears-house-panel-in-pre-dawn-hours.html",
-        "thumbnail": "https://static01.nyt.com/images/2017/03/10/us/10health1/10health1-master768.jpg",
-        "title": "before"
+        "url" : "Trump Won Big In House Conservatives' Districts — Will They Defy Him On Health Care?",
+        "thumbnail": "http://media.npr.org/assets/img/2017/03/08/gettyimages-649333788_wide-533224c64631fa037e0c02dcf1d3ba298ddbceae-s1600-c85.jpg",
+        "title": "Trump Won Big In House Conservatives' Districts — Will They Defy Him On Health Care?"
       },
       {
-        "url" : "https://www.nytimes.com/2017/03/08/us/politics/affordable-care-act-obama-care-health.html",
-        "thumbnail": "https://www.nytimes.com/2017/03/08/us/politics/affordable-care-act-obama-care-health.html",
-        "title": "the article i'm looking for"
+        "url" : "http://www.npr.org/sections/health-shots/2017/03/09/519304881/5-things-to-watch-with-the-gop-health-law-overhaul",
+        "thumbnail": "http://media.npr.org/assets/img/2017/03/08/gop-bill_custom-8525a282f7362ae54eedd816bcc81407b92c9edd-s1600-c85.jpg",
+        "title": "5 Key Takeaways From The GOP Health Overhaul Plan"
       },
-      {
-        "url" : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice",
-        "thumbnail": "https://static01.nyt.com/images/2017/03/10/us/10health1/10health1-master768.jpg",
-        "title": "after"
+       {
+        "url" : "http://www.npr.org/2017/03/09/519450642/medical-hospital-groups-oppose-gop-health-care-plan",
+        "thumbnail": "http://media.npr.org/assets/img/2017/03/09/ap_17068560544062_wide-ac77c2fa3957004e80d09aefee31781aef382824-s1600-c85.jpg",
+        "title": "Medical, Hospital Groups Oppose GOP Health Care Plan"
       }
     ]
   }
 ];
 
 var extractThread = function(url) {
-  var threads = listOfThreads;
-
-  for (var thread = 0; thread < threads.length; thread++) {
-    var currentThread = threads[thread];
+  for (var thread = 0; thread < listOfThreads.length; thread++) {
+    var currentThread = listOfThreads[thread];
     var articles = currentThread.articles;
 
     for (var i = 0; i < articles.length; i++) {
