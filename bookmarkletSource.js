@@ -88,34 +88,86 @@ var extractThread = function(url) {
 };
 
 function getRelatedLinksHTML( link ) {
-	var html = '';
-	var thread = extractThread( link );
+  var html = `
+<div>
+<div class="hack-group-parent">
+    <strong class="hack-group-label">More in this thread</strong>
+    <div class="hack-group-wrapper">
+        <div class="hack-group">
+            <ul class="hack-ul">`;
+  var thread = extractThread( link );
 
-	if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<div>Prev: ' + element.url + '</div>' } );
-	if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<div>Next: ' + element.url + '</div>' } );
+  if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">nytimes.com</div></li>' } );
+  if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">nytimes.com</div></li>' } );
 
-	return html;
+  html += `</ul>
+        </div>
+    </div>
+</div>
+</div>`;
+
+  return html;
 }
 
 function insertContentMaybe( postCard ) {
-	var link = postCard.querySelector( '._6ks a, a.touchable' );
+  var link = postCard.querySelector( '._6ks a, a.touchable' );
 
-	if( ! link ) return;
+  if( ! link ) return;
 
-	link = link.getAttribute( 'href' )
-		.replace("https://l.facebook.com/l.php?u=", "")
-		.replace("https://lm.facebook.com/l.php?u=", "")
-		.replace(/%3A/gi, ":")
-		.replace(/%F/gi, "/")
-		.replace(/%2F/gi, "/")
-		.split( '&' )[0];
+  link = link.getAttribute( 'href' )
+    .replace("https://l.facebook.com/l.php?u=", "")
+    .replace("https://lm.facebook.com/l.php?u=", "")
+    .replace(/%3A/gi, ":")
+    .replace(/%F/gi, "/")
+    .replace(/%2F/gi, "/")
+    .split( '&' )[0];
 
-	console.log( link );
+  console.log( link );
 
-	relatedLinksHTML = getRelatedLinksHTML( link );
+  relatedLinksHTML = getRelatedLinksHTML( link );
 
-	if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
+  if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
 }
 
+if( typeof styleInserted == 'undefined' ) {
+  var divNode = document.createElement("div");
+  divNode.innerHTML = `
+  <style>
+      .hack-group-parent {
+          padding-left: 5px;
+      }
+      .hack-group-wrapper {
+          height: 90px;
+          overflow:hidden;
+      }
+      .hack-group {
+          width: 100%;
+          overflow-x: scroll;
+          height: 101px;
+          margin-left: 6px;
+      }
+      .hack-group-label {
+          font-weight: bold;
+          padding-bottom: 5px;
+          padding-left: 5px;
+      }
+      .hack-ul {
+          width: 1000px;
+      }
+      .hack-article {
+          width: 150px;
+          height: 100px;
+          width: 270px;
+          margin-right: 10px;
+          float: left;
+      }
+      .hack-img {
+          float: left;
+          margin-right: 10px;
+      }
+  </style>`;
+  document.body.appendChild(divNode);
+  var styleInserted = true;
+}
 
-document.querySelectorAll( '._3x-2, div[data-sigil=m-feed-story-attachments-element' ).forEach( function( postCard ){ insertContentMaybe( postCard ) } );
+document.querySelectorAll( '._3x-2, section.touchable' ).forEach( function( postCard ){ insertContentMaybe( postCard ) } );
