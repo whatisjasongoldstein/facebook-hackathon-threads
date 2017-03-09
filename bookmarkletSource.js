@@ -1,11 +1,26 @@
 const listOfThreads = [
   {
-    "title" : "Renewable energy",
+    "title" : "The Affordable Care Act, In-Depth",
     "articles": [
       {
-        "url" : "http://www.npr.org/2017/03/08/518988840/wind-energy-takes-flight-in-the-heart-of-texas-oil-country",
-        "thumbnail": "http://media.npr.org/assets/img/2017/03/07/-wind-img_7024-edit-daa38c839ec1b42a40a3146c70c4c6e10f6be454-s1600-c85.jpg",
-        "title": "Wind Energy Takes Flight In The Heart Of Texas Oil Country"
+        "url" : "http://www.pbs.org/wgbh/frontline/film/sickaroundamerica/",
+        "thumbnail": "http://i0.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2009/03/Sick-Around-America.jpg?resize=1200%2C630",
+        "title": "Healthcare Before The ACA"
+      },
+      {
+        "url" : "http://www.pbs.org/wgbh/frontline/film/divided-states-of-america/",
+        "thumbnail": "http://i0.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2015/11/1409943771_ObamasDealHD.png?resize=1200%2C630",
+        "title": "All you need to know about Obamacare: The Divide"
+      },
+      {
+        "url" : "http://www.pbs.org/wgbh/frontline/film/obamasdeal/",
+        "thumbnail": "http://i2.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2016/11/FL_DividedStatesOfAmerica.jpg?resize=1200%2C630",
+        "title": "Obama's Deal"
+      },
+      {
+        "url" : "http://www.pbs.org/wgbh/frontline/article/health-care-rulings-winners-and-losers/",
+        "thumbnail": "http://i1.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2015/11/201262810599_1101.jpg?resize=1200%2C630",
+        "title": "View from 2012: Obamacare Winners and Losers"
       }
     ]
   },
