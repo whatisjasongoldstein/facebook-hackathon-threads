@@ -117,5 +117,10 @@ function insertContentMaybe( postCard ) {
 	if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
 }
 
+head = document.head || document.getElementsByTagName('head')[0]
+style = document.createElement('style');
+style.type = 'text/css';
+style.href = ''
+head.appendChild(style);
 
 document.querySelectorAll( '._3x-2, div[data-sigil=m-feed-story-attachments-element' ).forEach( function( postCard ){ insertContentMaybe( postCard ) } );
