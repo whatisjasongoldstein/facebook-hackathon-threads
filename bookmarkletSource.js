@@ -24,6 +24,31 @@ const listOfThreads = [
       }
     ]
   },
+    {
+    "title" : "Western Journalism on Wikileaks Vault 7",
+    "articles": [
+      {
+        "url" : "http://www.westernjournalism.com/assange-to-share-more-details-about-cia-hacking-techniques-with-tech-companies/",
+        "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/03/julianassange-vid.jpg",
+        "title": "Assange To Share More Details About CIA Hacking Techniques With Tech Companies"
+      },
+      {
+        "url" : "http://www.westernjournalism.com/wikileaks-spills-cias-hacking-secrets/",
+        "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/01/assange.jpg",
+        "title": "WikiLeaks Spills CIA’s Hacking Secrets"
+      },
+      {
+        "url" : "http://www.westernjournalism.com/limbaugh-wikileaks-revelation-cia-mimics-russian-hackers-changes-narrative/",
+        "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/03/rush-sbs-wikileaks-2.jpg",
+        "title": "Limbaugh: WikiLeaks Revelation That CIA Mimics Russian Hackers Changes Narrative "
+      },
+      {
+        "url" : "http://www.westernjournalism.com/wikileaks-reveals-cia-hacked-tvs-can-spy-owners/",
+        "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2016/10/julianassange.jpg",
+        "title": "WikiLeaks Reveals CIA-Hacked TVs Can Spy On Their Owners"
+      }
+    ]
+  },
   { "title" : "Healthcare",
     "articles": [
       {
