@@ -12,7 +12,7 @@ const listOfThreads = [
   { "title" : "Healthcare",
     "articles": [
       {
-        "url" : "Trump Won Big In House Conservatives' Districts — Will They Defy Him On Health Care?",
+        "url" : "http://www.npr.org/2017/03/08/519091030/freedom-caucus-members-face-crossroads-over-health-care-proposal",
         "thumbnail": "http://media.npr.org/assets/img/2017/03/08/gettyimages-649333788_wide-533224c64631fa037e0c02dcf1d3ba298ddbceae-s1600-c85.jpg",
         "title": "Trump Won Big In House Conservatives' Districts — Will They Defy Him On Health Care?"
       },
@@ -47,10 +47,14 @@ var extractThread = function(url) {
   return { previousArticles: previous, nextArticles: next }
 };
 
+function getRelatedLinksHTML( link ) {
+	var html = '';
+	var thread = extractThread( link );
 
-function getRelatedLinksHTML() {
+	if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) { html += '<div>' + element.url + '</div>' } );
+	if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) { html += '<div>' + element.url + '</div>' } );
 
-	return '<div>xyzz</div>';
+	return html;
 }
 
 function insertContentMaybe( postCard ) {
