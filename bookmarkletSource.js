@@ -5,22 +5,25 @@ const listOfThreads = [
       {
         "url" : "http://www.pbs.org/wgbh/frontline/film/sickaroundamerica/",
         "thumbnail": "http://i0.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2009/03/Sick-Around-America.jpg?resize=1200%2C630",
-        "title": "Healthcare Before The ACA"
+        "title": "Healthcare Before The ACA",
+        "type": "Background story"
       },
       {
         "url" : "http://www.pbs.org/wgbh/frontline/film/divided-states-of-america/",
         "thumbnail": "http://i0.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2015/11/1409943771_ObamasDealHD.png?resize=1200%2C630",
-        "title": "All you need to know about Obamacare: The Divide"
+        "title": "All you need to know about Obamacare: The Divide",
+        "type" :"Summary of events"
       },
       {
         "url" : "http://www.pbs.org/wgbh/frontline/film/obamasdeal/",
         "thumbnail": "http://i2.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2016/11/FL_DividedStatesOfAmerica.jpg?resize=1200%2C630",
-        "title": "Obama's Deal"
+        "title": "Obama's Deal",
       },
       {
         "url" : "http://www.pbs.org/wgbh/frontline/article/health-care-rulings-winners-and-losers/",
         "thumbnail": "http://i1.wp.com/www.pbs.org/wgbh/frontline/wp-content/uploads/2015/11/201262810599_1101.jpg?resize=1200%2C630",
-        "title": "View from 2012: Obamacare Winners and Losers"
+        "title": "View from 2012: Obamacare Winners and Losers",
+        "type": "Opinion"
       }
     ]
   },
@@ -102,12 +105,12 @@ function getRelatedLinksHTML( link ) {
   if( thread.previousArticles ) thread.previousArticles.forEach( function( element ) {
 	var parser = document.createElement('a');
 	parser.href = element.url;
-	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div></li>';
+	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" /><a href="'+ element.url + '" target="_blank">' + element.title + '</a><div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div><div class="_52jc _24u0 _1xvv _5tg_"><i>' + element.type + '</i></div></li>';
   } );
   if( thread.nextArticles ) thread.nextArticles.forEach( function( element ) {
   	var parser = document.createElement('a');
 	parser.href = element.url;
-	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" />' + element.title + '<div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div></li>';
+	html += '<li class="hack-article"><img class="hack-img" src="' + element.thumbnail + '" width="100" /><a href="'+ element.url + '" target="_blank">' + element.title + '</a><div class="_52jc _24u0 _1xvv _5tg_">' + parser.hostname + '</div><div class="_52jc _24u0 _1xvv _5tg_"><i>' + element.type + '</i></div></li>';
   } );
 
   html += `</ul>
@@ -145,6 +148,7 @@ if( typeof styleInserted == 'undefined' ) {
   <style>
       .hack-group-parent {
           padding-left: 5px;
+          margin-top: 10px;
       }
       .hack-group-wrapper {
           height: 90px;
@@ -154,12 +158,15 @@ if( typeof styleInserted == 'undefined' ) {
           width: 100%;
           overflow-x: scroll;
           height: 101px;
-          margin-left: 6px;
       }
       .hack-group-label {
           font-weight: bold;
           padding-bottom: 5px;
-          padding-left: 5px;
+          color: #90949c;
+          font-size: 11px;
+          line-height: 15px;
+          text-transform: uppercase;
+          margin-bottom: 10px;
       }
       .hack-ul {
           width: 1000px;
@@ -168,7 +175,6 @@ if( typeof styleInserted == 'undefined' ) {
           width: 150px;
           height: 100px;
           width: 270px;
-          margin-right: 10px;
           float: left;
       }
       .hack-img {
