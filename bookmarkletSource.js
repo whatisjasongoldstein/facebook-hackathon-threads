@@ -142,11 +142,14 @@ function insertContentMaybe( postCard ) {
     .replace(/%2F/gi, "/")
     .split( '&' )[0];
 
-  console.log( link );
 
   relatedLinksHTML = getRelatedLinksHTML( link );
 
-  if( relatedLinksHTML ) postCard.innerHTML += relatedLinksHTML;
+  if (relatedLinksHTML) {
+    var threadBox = document.createElement("div");
+    threadBox.innerHTML = relatedLinksHTML;
+    postCard.parentElement.append(threadBox);
+  }
 }
 
 if( typeof styleInserted == 'undefined' ) {
@@ -185,6 +188,7 @@ if( typeof styleInserted == 'undefined' ) {
           height: 100px;
           width: 270px;
           float: left;
+          font-size: 11px;
       }
       .hack-img {
           float: left;
