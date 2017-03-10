@@ -33,22 +33,26 @@ const listOfThreads = [
       {
         "url" : "http://www.westernjournalism.com/assange-to-share-more-details-about-cia-hacking-techniques-with-tech-companies/",
         "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/03/julianassange-vid.jpg",
-        "title": "Assange To Share More Details About CIA Hacking Techniques With Tech Companies"
+        "title": "Assange To Share More Details About CIA Hacking Techniques With Tech Companies",
+        "type": "Breaking"
       },
       {
         "url" : "http://www.westernjournalism.com/wikileaks-spills-cias-hacking-secrets/",
         "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/01/assange.jpg",
-        "title": "WikiLeaks Spills CIA’s Hacking Secrets"
+        "title": "WikiLeaks Spills CIA’s Hacking Secrets",
+        "type": "Background story"
       },
       {
         "url" : "http://www.westernjournalism.com/limbaugh-wikileaks-revelation-cia-mimics-russian-hackers-changes-narrative/",
         "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2017/03/rush-sbs-wikileaks-2.jpg",
-        "title": "Limbaugh: WikiLeaks Revelation That CIA Mimics Russian Hackers Changes Narrative "
+        "title": "Limbaugh: WikiLeaks Revelation That CIA Mimics Russian Hackers Changes Narrative ",
+        "type": "Documents"
       },
       {
         "url" : "http://www.westernjournalism.com/wikileaks-reveals-cia-hacked-tvs-can-spy-owners/",
         "thumbnail": "http://static.westernjournalism.com/wp-content/uploads/2016/10/julianassange.jpg",
-        "title": "WikiLeaks Reveals CIA-Hacked TVs Can Spy On Their Owners"
+        "title": "WikiLeaks Reveals CIA-Hacked TVs Can Spy On Their Owners",
+        "type": "Opinion"
       }
     ]
   },
@@ -57,17 +61,20 @@ const listOfThreads = [
       {
         "url" : "http://www.npr.org/2017/03/08/519091030/freedom-caucus-members-face-crossroads-over-health-care-proposal",
         "thumbnail": "http://media.npr.org/assets/img/2017/03/08/gettyimages-649333788_wide-533224c64631fa037e0c02dcf1d3ba298ddbceae-s1600-c85.jpg",
-        "title": "Trump Won Big In House Conservatives' Districts — Will They Defy Him On Health Care?"
+        "title": "Trump Won Big In House Conservatives' Districts",
+        "type": "Background story"
       },
       {
         "url" : "http://www.npr.org/sections/health-shots/2017/03/09/519304881/5-things-to-watch-with-the-gop-health-law-overhaul",
         "thumbnail": "http://media.npr.org/assets/img/2017/03/08/gop-bill_custom-8525a282f7362ae54eedd816bcc81407b92c9edd-s1600-c85.jpg",
-        "title": "5 Key Takeaways From The GOP Health Overhaul Plan"
+        "title": "5 Key Takeaways From The GOP Health Overhaul Plan",
+        "type" :"Summary of events"
       },
        {
         "url" : "http://www.npr.org/2017/03/09/519450642/medical-hospital-groups-oppose-gop-health-care-plan",
         "thumbnail": "http://media.npr.org/assets/img/2017/03/09/ap_17068560544062_wide-ac77c2fa3957004e80d09aefee31781aef382824-s1600-c85.jpg",
-        "title": "Medical, Hospital Groups Oppose GOP Health Care Plan"
+        "title": "Medical, Hospital Groups Oppose GOP",
+        "type": "Opinion"
       }
     ]
   }
@@ -158,10 +165,12 @@ if( typeof styleInserted == 'undefined' ) {
           width: 100%;
           overflow-x: scroll;
           height: 101px;
+          margin-left: 6px;
       }
       .hack-group-label {
           font-weight: bold;
           padding-bottom: 5px;
+          padding-left: 5px;
           color: #90949c;
           font-size: 11px;
           line-height: 15px;
